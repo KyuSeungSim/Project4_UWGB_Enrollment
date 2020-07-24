@@ -1,1 +1,5 @@
-# Project4_UWGB_Enrollment
+Project 4
+KYU SEUNG SIM
+Dr. Elliot
+COMP SCI 256-0800
+JULY 23, 2020
