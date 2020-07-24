@@ -15,6 +15,11 @@ class compSciList {
       System.out.println("An error occurred.");
       e.printStackTrace();
       }
+    int CS201 = 3;
+    int CS221 = 3;
+    int CS231 = 3;
+    int CS240 = 4;
+    int CS256 = 4;    
   }
 }
 
@@ -32,6 +37,8 @@ class mathList extends compSciList {
       System.out.println("An error occurred.");
       e.printStackTrace();
       }
+    int MATH202 = 4;
+    int MATH260 = 4;
   }
 }
 
@@ -49,6 +56,9 @@ class commList extends compSciList {
       System.out.println("An error occurred.");
       e.printStackTrace();
       }
+    int COMM133 = 3;
+    int COMM166 = 3;
+    int COMM237 = 3;
   }
 }
 
@@ -56,7 +66,8 @@ class commList extends compSciList {
 
 class enrollment {
 
-  public void matchClass() {
+  public void matchClass(String className) {
+
 
   }
 
@@ -114,10 +125,17 @@ class enrollment {
         if(totalCredit > 18){
           System.out.println("Total Creadit Can't Over 18");
         } else { 
-        System.out.println();
         System.out.print("Which Class do you want to add: ");
         String userInputAddClass = user_input.nextLine();
-        classList.add(userInputAddClass);
+          if(userInputAddClass.matches("CS201|CS221|CS231|CS292|CS353|CS358|CS361|CS452|CS464|CS490|COMM133|COMM166|COMM237")) {
+            classList.add(userInputAddClass); 
+            totalCredit += 3; 
+          } else if (userInputAddClass.matches("CS240|CS256|CS316|CS351|CS371|MATH202|MATH260")) {
+            classList.add(userInputAddClass); 
+            totalCredit += 4; 
+          } else {
+            System.out.println("Invalid Input!");
+          }
         System.out.println();
         i++;
         }
