@@ -1,0 +1,17 @@
+Class Name = Credit
+
+CS201 = 3 Credit
+CS221 = 3 Credit
+CS231 = 3 Credit
+CS240 = 4 Credit
+CS256 = 4 Credit
+CS292 = 3 Credit
+CS316 = 4 Credit
+CS351 = 4 Credit
+CS353 = 3 Credit
+CS358 = 3 Credit
+CS361 = 3 Credit
+CS371 = 4 Credit
+CS452 = 3 Credit
+CS464 = 3 Credit
+CS490 = 3 Credit

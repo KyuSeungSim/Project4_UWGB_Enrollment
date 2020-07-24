@@ -1,0 +1,4 @@
+Class Name = Credit
+
+MATH202 = 4 Credit 
+MATH260 = 4 Credit

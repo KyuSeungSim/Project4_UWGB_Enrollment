@@ -1,0 +1,5 @@
+Class Name = Credit
+
+COMM133 = 3 Credit
+COMM166 = 3 Credit
+COMM237 = 3 Credit
