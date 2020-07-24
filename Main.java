@@ -15,11 +15,6 @@ class compSciList {
       System.out.println("An error occurred.");
       e.printStackTrace();
       }
-    int CS201 = 3;
-    int CS221 = 3;
-    int CS231 = 3;
-    int CS240 = 4;
-    int CS256 = 4;    
   }
 }
 
@@ -37,8 +32,6 @@ class mathList extends compSciList {
       System.out.println("An error occurred.");
       e.printStackTrace();
       }
-    int MATH202 = 4;
-    int MATH260 = 4;
   }
 }
 
@@ -56,9 +49,6 @@ class commList extends compSciList {
       System.out.println("An error occurred.");
       e.printStackTrace();
       }
-    int COMM133 = 3;
-    int COMM166 = 3;
-    int COMM237 = 3;
   }
 }
 
