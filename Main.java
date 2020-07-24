@@ -4,13 +4,13 @@ import java.util.*; // Import the Scanner class to read text files
 class compSciList {
   public void compSciClassList() {
     try{
-      File myObj = new File("COMP_SCI_CLASS_LIST.txt");
-      Scanner myReader = new Scanner(myObj);
-      while (myReader.hasNextLine()) {
-        String data = myReader.nextLine();
+      File compSciFile = new File("COMP_SCI_CLASS_LIST.txt");
+      Scanner compSciClassReader = new Scanner(compSciFile);
+      while (compSciClassReader.hasNextLine()) {
+        String data = compSciClassReader.nextLine();
         System.out.println(data);
       }
-      myReader.close();
+      compSciClassReader.close();
     } catch (FileNotFoundException e) {
       System.out.println("An error occurred.");
       e.printStackTrace();
@@ -26,13 +26,13 @@ class compSciList {
 class mathList extends compSciList {
   public void mathClassList() {
     try{
-      File myObj = new File("MATH_CLASS_LIST.txt");
-      Scanner myReader = new Scanner(myObj);
-      while (myReader.hasNextLine()) {
-        String data = myReader.nextLine();
+      File mathFile = new File("MATH_CLASS_LIST.txt");
+      Scanner mathClassReader = new Scanner(mathFile);
+      while (mathClassReader.hasNextLine()) {
+        String data = mathClassReader.nextLine();
         System.out.println(data);
       }
-      myReader.close();
+      mathClassReader.close();
     } catch (FileNotFoundException e) {
       System.out.println("An error occurred.");
       e.printStackTrace();
@@ -45,13 +45,13 @@ class mathList extends compSciList {
 class commList extends compSciList {
   public void commClassList() {
     try{
-      File myObj = new File("COMM_CLASS_LIST.txt");
-      Scanner myReader = new Scanner(myObj);
-      while (myReader.hasNextLine()) {
-        String data = myReader.nextLine();
+      File commFile = new File("COMM_CLASS_LIST.txt");
+      Scanner commClassReader = new Scanner(commFile);
+      while (commClassReader.hasNextLine()) {
+        String data = commClassReader.nextLine();
         System.out.println(data);
       }
-      myReader.close();
+      commClassReader.close();
     } catch (FileNotFoundException e) {
       System.out.println("An error occurred.");
       e.printStackTrace();
@@ -62,15 +62,7 @@ class commList extends compSciList {
   }
 }
 
-
-
 class enrollment {
-
-  public void matchClass(String className) {
-
-
-  }
-
   public void enrollmentStart() {
 
     int i = 0;
@@ -79,7 +71,6 @@ class enrollment {
     Scanner user_input = new Scanner(System.in);
     Scanner user_input_int = new Scanner(System.in);
     Scanner user_input_string = new Scanner(System.in);
-
 
     System.out.println("Welcome UWGB enrollment System");  
 
@@ -150,12 +141,15 @@ class enrollment {
           System.out.println();
         i++;
       } else if (user_select_class_process == 0) {
-        break; 
+        if(totalCredit < 6) {
+          System.out.println("You must have at least one class");
+        } else {
+          break; 
+        }
       } else {
         System.out.println("Invalid Input!");
       }
     }
-
     System.out.print("Your Class List is: ");
     System.out.println(classList);
     System.out.println();
