@@ -58,9 +58,14 @@ class enrollment {
     int i = 0;
     int totalCredit = 0;
 
-    Scanner user_input = new Scanner(System.in);
-    Scanner user_input_int = new Scanner(System.in);
-    Scanner user_input_string = new Scanner(System.in);
+    Scanner user_input_class_select_int = new Scanner(System.in);
+    Scanner user_input_class_process_int = new Scanner(System.in);
+    Scanner user_input_class_name_string = new Scanner(System.in);
+    Scanner user_input_class_drop_int = new Scanner(System.in);
+
+    Scanner user_input_check_int = new Scanner(System.in); 
+    Scanner user_input_check_string = new Scanner(System.in); 
+    Scanner user_input_comment_string = new Scanner(System.in); 
 
     System.out.println("Welcome UWGB enrollment System");  
 
@@ -70,7 +75,7 @@ class enrollment {
     System.out.println("1. Computer Science \n2. Math \n3. Communication \n0. Exit");
     System.out.println();
     System.out.print("Please enter the number to choose: ");
-    int user_select_class_list = user_input_int.nextInt();  
+    int user_select_class_list = user_input_class_select_int.nextInt();  
     System.out.println();  
 
       if (user_select_class_list == 1) {
@@ -99,7 +104,7 @@ class enrollment {
     System.out.println("1. ADD \n2. DROP \n0. Finish");
     System.out.println();
     System.out.print("Please enter the number to choose: ");
-    int user_select_class_process = user_input_int.nextInt();  
+    int user_select_class_process = user_input_class_process_int.nextInt();  
     System.out.println();  
 
       if (user_select_class_process == 1) {
@@ -107,7 +112,7 @@ class enrollment {
           System.out.println("Total Creadit Can't Over 18");
         } else { 
         System.out.print("Which Class do you want to add: ");
-        String userInputAddClass = user_input.nextLine();
+        String userInputAddClass = user_input_class_name_string.nextLine();
           if(userInputAddClass.matches("CS201|CS221|CS231|CS292|CS353|CS358|CS361|CS452|CS464|CS490|COMM133|COMM166|COMM237")) {
             classList.add(userInputAddClass); 
             totalCredit += 3; 
@@ -126,12 +131,12 @@ class enrollment {
           System.out.println();
           System.out.println("It Strat with 0!");
           System.out.print("Select Position to drop class: ");
-          int userInputDropClass = user_input.nextInt();
+          int userInputDropClass = user_input_class_drop_int.nextInt();
           classList.remove(userInputDropClass);
           System.out.println();
         i++;
       } else if (user_select_class_process == 0) {
-        if(totalCredit < 6) {
+        if(classList.size() < 1) {
           System.out.println("You must have at least one class");
         } else {
           break; 
@@ -140,10 +145,49 @@ class enrollment {
         System.out.println("Invalid Input!");
       }
     }
-    System.out.print("Your Class List is: ");
-    System.out.println(classList);
-    System.out.println();
-    System.out.print("Your Total Creadit is " + totalCredit);
+    System.out.println("Your Class List is: " + classList);
+    System.out.println("Your Total Creadit is " + totalCredit);
+
+    System.out.println("Do you want to save this Class list ?\n1. Yes \n2. No");
+    int user_select_save = user_input_check_int.nextInt();  
+
+    if (user_select_save == 1){
+      System.out.print("Please Enter the file name: ");
+      String user_select_file_name = user_input_check_string.nextLine();
+      try {
+            File myFile = new File(user_select_file_name);
+            if (myFile.createNewFile()) {
+              System.out.println("File created: " + myFile.getName());
+            } else {
+              System.out.println("File already exists.");
+            }
+          } catch (IOException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+          }
+      System.out.println("Do you want to add comment to your file? \n1. Yes \n2. No");
+      if(user_select_save == 1){
+        System.out.print("Please Enter the Comment: ");
+        String user_file_comment = user_input_comment_string.nextLine();
+        System.out.println();
+          try {
+              FileWriter myComment = new FileWriter(user_select_file_name);
+              myComment.write("Your Class List is: " + classList);
+              myComment.write("\nYour Total Creadit is " + totalCredit);
+              myComment.write("\n" + user_file_comment);
+              myComment.close();
+              System.out.println("Successfully wrote to the file.");
+            } catch (IOException e) {
+              System.out.println("An error occurred.");
+              e.printStackTrace();
+            }
+
+
+
+      }
+    } else {
+      System.out.println("Have a nice day!");
+    }
   }
 }
 
