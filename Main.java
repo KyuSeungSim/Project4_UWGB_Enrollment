@@ -66,6 +66,7 @@ class enrollment {
     Scanner user_input_check_int = new Scanner(System.in); 
     Scanner user_input_check_string = new Scanner(System.in); 
     Scanner user_input_comment_string = new Scanner(System.in); 
+    Scanner user_input_check_commoment_int = new Scanner(System.in); 
 
     System.out.println("Welcome UWGB enrollment System");  
 
@@ -166,7 +167,9 @@ class enrollment {
             e.printStackTrace();
           }
       System.out.println("Do you want to add comment to your file? \n1. Yes \n2. No");
-      if(user_select_save == 1){
+      int user_select_comment = user_input_check_commoment_int.nextInt();  
+
+      if(user_select_comment == 1){
         System.out.print("Please Enter the Comment: ");
         String user_file_comment = user_input_comment_string.nextLine();
         System.out.println();
@@ -181,9 +184,6 @@ class enrollment {
               System.out.println("An error occurred.");
               e.printStackTrace();
             }
-
-
-
       }
     } else {
       System.out.println("Have a nice day!");
